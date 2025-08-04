@@ -66,8 +66,8 @@ Playwright-Python/
 
 ## 📊 Reports and Dashboards
 
-- [🔗 Allure Live Report](https://nekrasovigor1.github.io/Playwright-Python/allure-report/index.html)
-- ![Allure Sample](https://raw.githubusercontent.com/NekrasovIgor1/Playwright-Python/main/assets/allure-sample.png)
+- [🔗 Allure Live Report](assets/allure.png)
+- ![Allure Sample](assets/allure packages.png)
 
 ## 🏷️ Badges
 
@@ -78,7 +78,6 @@ Playwright-Python/
 
 ![main_page](assets/screenshot1.png)   
 ![imdb](assets/imdb.png)
-![allure](assets/imdb.png)
 
 ## 🙌 Call to Action
 
