@@ -5,7 +5,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/NekrasovIgor1/Playwright-Python)
 ![GitHub stars](https://img.shields.io/github/stars/NekrasovIgor1/Playwright-Python?style=social)
 
-![Framework Banner](https://raw.githubusercontent.com/NekrasovIgor1/Playwright-Python/main/assets/banner.png)
+![Framework Banner](assets/banner.png)
 
 ## 📝 Project Description
 
@@ -76,7 +76,7 @@ Playwright-Python/
 
 ## 🖼️ Screenshots
 
-![main_page](assets/screenshot1.png)
+![main_page](assets/screenshot1.png)   
 ![imdb](assets/imdb.png)
 ![allure](assets/imdb.png)
 
