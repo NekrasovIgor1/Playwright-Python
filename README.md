@@ -67,7 +67,7 @@ Playwright-Python/
 ## 📊 Reports and Dashboards
 
 - [🔗 Allure Live Report](assets/allure.png)
-- ![Allure Sample](assets/allure packages.png)
+- [🔗 Allure Sample](assets/allure%20packages.png)
 
 ## 🏷️ Badges
 
@@ -76,7 +76,7 @@ Playwright-Python/
 
 ## 🖼️ Screenshots
 
-![main_page](assets/screenshot1.png)   
+![main_page](assets/screenshoot1.png)   
 ![imdb](assets/imdb.png)
 
 ## 🙌 Call to Action
