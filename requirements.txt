@@ -1,0 +1,18 @@
+playwright
+pytest
+pytest-playwright
+allure-pytest ==2.15.0
+
+
+# allure serve allure/reports/allure-results
+
+# rmdir /s /q allure\reports\allure-results
+# rmdir /s /q allure\reports\allure-results && pytest tests/search_bar
+# rmdir /s /q allure\reports\allure-results && pytest tests/sign_in
+# rmdir /s /q allure\reports\allure-results && pytest tests/top_nav_bar
+# rmdir /s /q allure\reports\allure-results && pytest tests/videos
+# rmdir /s /q allure\reports\allure-results && pytest tests/watchlist
+# rmdir /s /q allure\reports\allure-results && pytest tests/watchlist && pytest tests/videos&& pytest tests/top_nav_bar && pytest tests/sign_in && pytest tests/search_bar
+
+# rmdir /s /q allure\reports\allure-results && pytest
+
