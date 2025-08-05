@@ -4,27 +4,32 @@ on:
   workflow_dispatch:          # manual trigger only
 
 permissions:
-  contents: write  # מאפשר push ל-gh-pages
+  contents: write
 
 jobs:
   merge_test:
     name: Run pytest & publish Allure
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 45
 
     container:
-      image: mcr.microsoft.com/playwright:v1.52.0   # browsers + xvfb pre‑installed
+      image: mcr.microsoft.com/playwright:v1.52.0
 
     steps:
-      # 1 Check out code
+      # 1. Check out code
       - uses: actions/checkout@v4
 
-      # 2 Set up Python
+      # 2. Fix dubious ownership for Git
+      - name: Fix Git ownership
+        run: |
+          git config --global --add safe.directory /__w/${{ github.repository }}/$(basename ${{ github.repository }})
+
+      # 3. Set up Python
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
-      # 3 Create venv & install deps with pip
+      # 4. Create venv & install dependencies
       - name: Install dependencies
         shell: bash
         run: |
@@ -33,15 +38,14 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4 Run pytest under xvfb, save Allure results
-  # xvfb-run pytest -m devRun --alluredir=allure-results
+      # 5. Run pytest on tests folder
       - name: Test with pytest
         shell: bash
         run: |
           source .venv/bin/activate
-          xvfb-run pytest --alluredir=allure-results
+          xvfb-run pytest tests
 
-      # 5 Write build/git metadata into Allure
+      # 6. Add metadata to Allure
       - name: Add metadata to Allure
         if: always()
         working-directory: allure-results
@@ -53,10 +57,10 @@ jobs:
             echo GIT_COMMIT_MESSAGE=$(git show -s --format=%s HEAD)
             echo GIT_COMMIT_AUTHOR_NAME=$(git show -s --format='%ae' HEAD)
             echo GIT_COMMIT_TIME=$(git show -s --format=%ci HEAD)
-            echo CHROME_VERSION=$(google-chrome --product-version)
+            echo CHROME_VERSION=$(chromium --version)
           } >> environment.properties
 
-      # 6 Generate static Allure report
+      # 7. Generate Allure report
       - name: Generate Allure report
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -66,7 +70,7 @@ jobs:
           gh_pages:       gh-pages
           allure_history: allure-history
 
-      # 7 Publish Allure history to GitHub Pages
+      # 8. Deploy report to GitHub Pages
       - name: Deploy report to GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
