@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: "3.13"
 
-      # 4. Install dependencies
+      # 4. Install dependencies (including allure-pytest)
       - name: Install dependencies
         shell: bash
         run: |
@@ -37,6 +37,7 @@ jobs:
           source .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
+          pip install allure-pytest
 
       # 5. Run pytest and collect Allure results
       - name: Test with pytest
@@ -44,7 +45,7 @@ jobs:
         run: |
           source .venv/bin/activate
           mkdir -p allure-results
-          xvfb-run pytest tests || true   # ממשיך גם אם יש כשל בטסטים
+          xvfb-run pytest tests --alluredir=allure-results || true   # ממשיך גם אם יש כשלונות
 
       # 6. Add metadata to Allure
       - name: Add metadata to Allure
