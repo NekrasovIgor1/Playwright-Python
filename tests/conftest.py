@@ -37,7 +37,7 @@ def setup_page_class(request, browser):
 
     yield
     request.cls.page.close()
-    browser.close()
+    #browser.close()
 
 
 @pytest.fixture(scope="function")
