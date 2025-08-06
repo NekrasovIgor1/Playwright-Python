@@ -1,5 +1,6 @@
 from playwright.sync_api import Page
 from pages.base_page import BasePage
+import time
 
 class SignInPage(BasePage):
     def __init__(self, page: Page):
@@ -26,7 +27,8 @@ class SignInPage(BasePage):
     def sign_in_imdb(self, email: str, password: str):
         self.sign_in_with_imdb_btn()
         self.fill_info(email, password)
-        self.wait_for_url("https://www.imdb.com/")
+        time.sleep(5)
+        #self.wait_for_url("https://www.imdb.com/")
 
         # sign in with imdb account and fill negative info
     def sign_in_imdb_negative(self, email: str, password: str):
