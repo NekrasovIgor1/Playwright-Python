@@ -31,7 +31,7 @@ class BasePage:
 
     def get_locator(self, selector: str):
         time.sleep(1)
-        return self.__page.locator(selector)
+        return self.get_locator(locator).click(timeout=60000)
 
     def get_text(self, selector: str) -> str:
         return self.__page.locator(selector).inner_text()
