@@ -19,8 +19,10 @@ from pages.advanced_search_page import AdvancedSearchPage
 @pytest.fixture(scope="class")
 def setup_page_class(request, browser):
     request.cls.page = browser.new_page()
+    page.set_default_timeout(60000)  
+    page.set_default_navigation_timeout(60000)
     url = ConfigReader.read_config("global","url")
-    request.cls.page.goto(url)
+    page.goto(url, timeout=60000, wait_until="domcontentloaded")
     request.cls.main_page = MainPage(request.cls.page)
     request.cls.top_nav_bar = TopNavBar(request.cls.page)
     request.cls.sign_in_page = SignInPage(request.cls.page)
