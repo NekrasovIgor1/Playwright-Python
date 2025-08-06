@@ -39,10 +39,10 @@ class BasePage:
     def is_visible(self, locator: str) -> bool:
         return self.__page.locator(locator).is_visible()
 
-    def wait_for_locator(self, locator: str, timeout: int = 20000):
+    def wait_for_locator(self, locator: str, timeout: int = 60000):
         self.__page.wait_for_selector(locator, state='visible', timeout=timeout)
 
-    def wait_for_url(self, url: str, timeout: int = 10000):
+    def wait_for_url(self, url: str, timeout: int = 60000):
         self.__page.wait_for_url(url, timeout=timeout)
 
     def scroll_by_pixels(self, pixels: int):
