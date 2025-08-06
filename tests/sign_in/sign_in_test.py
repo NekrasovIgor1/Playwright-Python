@@ -9,4 +9,4 @@ class TestSignIn(BaseTest):
 
         # verify username is shown after login
         username_text = self.top_nav_bar.get_tex_profile_name()
-        assert "Igor" in username_text
+        assert "igor" in username_text
