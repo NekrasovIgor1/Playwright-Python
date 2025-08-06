@@ -67,7 +67,7 @@ Playwright-Python/
 ## 📊 Reports and Dashboards
 
 - [🔗 Allure Live Report](assets/allure.png)
-- [🔗 Allure Packages](assets/allure%20packages.png)
+- [🔗 Allure Packages](assets/allure-packages.png)
 
 ## 🏷️ Badges
 
