@@ -1,12 +1,11 @@
 import time
-
 from playwright.sync_api import Page
 
 class BasePage:
-    def __init__(self,page: Page):
+    def __init__(self, page: Page):
         self.__page = page
 
-    def click (self, locator):
+    def click(self, locator):
         self._highlight_element(locator, "green")
         self.__page.locator(locator).click()
 
@@ -22,16 +21,16 @@ class BasePage:
         self._highlight_element(parent_locator, "green")
         parent_locator.locator(child_selector).check()
 
-    def fill_text (self,locator,text):
+    def fill_text(self, locator, text):
         self._highlight_element(locator, "green")
         self.__page.locator(locator).fill(text)
 
-    def inner_text(self,locator):
+    def inner_text(self, locator):
         return self.__page.locator(locator).inner_text()
 
     def get_locator(self, selector: str):
         time.sleep(1)
-        return self.get_locator(locator).click(timeout=60000)
+        return self.__page.locator(selector)
 
     def get_text(self, selector: str) -> str:
         return self.__page.locator(selector).inner_text()
@@ -43,7 +42,7 @@ class BasePage:
         self.__page.wait_for_selector(locator, state='visible', timeout=timeout)
 
     def wait_for_url(self, url: str, timeout: int = 60000):
-        self.__page.wait_for_url(url, timeout=timeout)
+        self.__page.wait_for_url(url, timeout=timeout, wait_until="domcontentloaded")
 
     def scroll_by_pixels(self, pixels: int):
         self.__page.evaluate(f"window.scrollBy(0, {pixels})")
@@ -54,14 +53,7 @@ class BasePage:
     def reload_page(self):
         self.__page.reload()
 
-
-    # Highlights a web element temporarily by changing its background color and box shadow.
-    # This is useful for debugging or visual tracking during automated test runs.
-    # Parameters:
-    #   locator (str): The selector used to locate the element on the page.
-    #   color (str): The background color to use for highlighting (default is yellow).
     def _highlight_element(self, locator, color: str = "yellow"):
-        # If the locator is a string – convert it to a Locator
         if isinstance(locator, str):
             locator = self.__page.locator(locator)
 
