@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","6864","test_titles_search2[chromium]","tests.search_bar.advanced_search","Wed Aug 06 10:59:59 GMT 2025","broken","Wed Aug 06 11:00:05 GMT 2025","TestTitlesSearch2","titles_search2_test","",""
+"","6884","test_titles_search3[chromium]","tests.search_bar.advanced_search","Wed Aug 06 11:00:08 GMT 2025","broken","Wed Aug 06 11:00:15 GMT 2025","TestTitlesSearch3","titles_search3_test","",""
+"","6928","test_titles_search1[chromium]","tests.search_bar.advanced_search","Wed Aug 06 10:59:49 GMT 2025","broken","Wed Aug 06 10:59:56 GMT 2025","TestTitlesSearch1","titles_search1_test","",""
