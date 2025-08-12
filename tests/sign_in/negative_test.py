@@ -21,18 +21,18 @@ class TestSignInNegative(BaseTest):
         assert "Enter your email or mobile phone number" in error_text
 
         #wrong email, correct password
-    # def test_sign_in_negative_wrong_email(self):
-    #     self.sign_in_page.fill_info_negative_test('nekrasovigor2@gmail.com', 'nekrasovigor1')
-    #
-    #     error_text = self.sign_in_page.error_message_wrong_email_or_password()
-    #     assert "We cannot find an account with that email address" in error_text
-    #
-    #     #corect email, wrong password
-    # def test_sign_in_negative_wrong_password(self):
-    #     self.sign_in_page.fill_info_negative_test('nekrasovigor1@gmail.com', 'nekrasovigor')
-    #
-    #     error_text = self.sign_in_page.error_message_wrong_email_or_password()
-    #     assert "Your password is incorrect" in error_text
+     def test_sign_in_negative_wrong_email(self):
+         self.sign_in_page.fill_info_negative_test('nekrasovigor2@gmail.com', 'nekrasovigor1')
+    
+         error_text = self.sign_in_page.error_message_wrong_email_or_password()
+         assert "We cannot find an account with that email address" in error_text
+    
+         # correct email, wrong password
+     def test_sign_in_negative_wrong_password(self):
+         self.sign_in_page.fill_info_negative_test('nekrasovigor1@gmail.com', 'nekrasovigor')
+    
+         error_text = self.sign_in_page.error_message_wrong_email_or_password()
+         assert "Your password is incorrect" in error_text
 
 
 
