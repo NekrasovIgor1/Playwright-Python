@@ -88,5 +88,7 @@ Feel free to submit issues, ideas or connect with me on [LinkedIn](https://www.l
 
 🔗 **Project Repository**: [Playwright-Python](https://github.com/NekrasovIgor1/Playwright-Python)  
 
+---
+
 > The project was created as part of an automation course under the Automation College (Gal Matalon):  
 > [https://automation.co.il/](https://automation.co.il/)
